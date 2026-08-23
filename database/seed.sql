@@ -3,7 +3,7 @@
  * Genere a partir des annexes RH fournies (users.txt / agences.txt)
  */
 
-USE touche_pas_au_klaxon_db;
+USE touche_pas_au_klaxon;
 
 /**
 * Agences
@@ -23,7 +23,7 @@ INSERT INTO agence (nom_agence) VALUES ('Rennes');
 INSERT INTO agence (nom_agence) VALUES ('Reims');
 
 /**
-* Employes et Mot de passe en clair pour tous les employes de demonstration en hashage bcrypt : Admin123!
+* Employes et Mot de passe en clair pour tous les employes de demonstration en hashage bcrypt : Password123!
 * Compte administrateur dedie : admin@touchepasauklaxon.fr / Admin123!
 */
 

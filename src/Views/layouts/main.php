@@ -18,6 +18,7 @@ $currentUser = Auth::user();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,51 +26,53 @@ $currentUser = Auth::user();
     <link rel="stylesheet" href="/assets/css/app.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
 </head>
+
 <body>
 
-<header class="app-header d-flex justify-content-between align-items-center px-4 py-3 mb-4">
-    <?php if ($currentUser !== null && $currentUser['role'] === 'admin') : ?>
-        <a class="app-brand" href="/admin">Touche pas au klaxon</a>
-        <nav class="d-flex align-items-center gap-2">
-            <a class="btn btn-secondary" href="/admin/utilisateurs">Utilisateurs</a>
-            <a class="btn btn-secondary" href="/admin/agences">Agences</a>
-            <a class="btn btn-secondary" href="/admin/trajets">Trajets</a>
-            <span class="app-username">Bonjour <?= htmlspecialchars($currentUser['prenom'] . ' ' . $currentUser['nom']) ?></span>
-            <form method="post" action="/deconnexion" class="m-0">
-                <button type="submit" class="btn btn-dark">Deconnexion</button>
-            </form>
-        </nav>
-    <?php elseif ($currentUser !== null) : ?>
-        <a class="app-brand" href="/">Touche pas au klaxon</a>
-        <nav class="d-flex align-items-center gap-2">
-            <a class="btn btn-dark" href="/trajets/creer">Creer un trajet</a>
-            <span class="app-username">Bonjour <?= htmlspecialchars($currentUser['prenom'] . ' ' . $currentUser['nom']) ?></span>
-            <form method="post" action="/deconnexion" class="m-0">
-                <button type="submit" class="btn btn-dark">Deconnexion</button>
-            </form>
-        </nav>
-    <?php else : ?>
-        <a class="app-brand" href="/">Touche pas au klaxon</a>
-        <nav>
-            <a class="btn btn-dark" href="/connexion">Connexion</a>
-        </nav>
-    <?php endif; ?>
-</header>
+    <header class="app-header d-flex justify-content-between align-items-center px-4 py-3 mb-4">
+        <?php if ($currentUser !== null && $currentUser['role'] === 'admin') : ?>
+            <a class="app-brand" href="/admin">Touche pas au klaxon</a>
+            <nav class="d-flex align-items-center gap-2">
+                <a class="btn btn-secondary" href="/admin/utilisateurs">Utilisateurs</a>
+                <a class="btn btn-secondary" href="/admin/agences">Agences</a>
+                <a class="btn btn-secondary" href="/admin/trajets">Trajets</a>
+                <span class="app-username">Bonjour <?= htmlspecialchars($currentUser['prenom'] . ' ' . $currentUser['nom']) ?></span>
+                <form method="post" action="/deconnexion" class="m-0">
+                    <button type="submit" class="btn btn-dark">Deconnexion</button>
+                </form>
+            </nav>
+        <?php elseif ($currentUser !== null) : ?>
+            <a class="app-brand" href="/">Touche pas au klaxon</a>
+            <nav class="d-flex align-items-center gap-2">
+                <a class="btn btn-dark" href="/trajets/creer">Creer un trajet</a>
+                <span class="app-username">Bonjour <?= htmlspecialchars($currentUser['prenom'] . ' ' . $currentUser['nom']) ?></span>
+                <form method="post" action="/deconnexion" class="m-0">
+                    <button type="submit" class="btn btn-dark">Deconnexion</button>
+                </form>
+            </nav>
+        <?php else : ?>
+            <a class="app-brand" href="/">Touche pas au klaxon</a>
+            <nav>
+                <a class="btn btn-dark" href="/connexion">Connexion</a>
+            </nav>
+        <?php endif; ?>
+    </header>
 
-<main class="container">
-    <?php foreach (FlashMessage::pull() as $flash) : ?>
-        <div class="alert alert-<?= htmlspecialchars($flash['type']) ?>" role="alert">
-            <?= htmlspecialchars($flash['message']) ?>
-        </div>
-    <?php endforeach; ?>
+    <main class="container">
+        <?php foreach (FlashMessage::pull() as $flash) : ?>
+            <div class="alert alert-<?= htmlspecialchars($flash['type']) ?>" role="alert">
+                <?= htmlspecialchars($flash['message']) ?>
+            </div>
+        <?php endforeach; ?>
 
-    <?= $content ?>
-</main>
+        <?= $content ?>
+    </main>
 
-<footer class="app-footer text-center py-4 mt-5">
-    Touche pas au klaxon &copy; <?= date('Y') ?> - CENEF - MVC PHP
-</footer>
+    <footer class="app-footer text-center py-4 mt-5">
+        &copy; Touche pas au klaxon
+    </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,99 @@
+$app-cream: #f1f8fc;
+$app-blue-light: #0074c7;
+$app-blue-dark: #00497c;
+$app-slate: #384050;
+$app-red: #cd2c2e;
+$app-green: #82b864;
+
+//  Variables Bootstrap surchargees AVANT l'import de Bootstrap
+
+$primary: $app-blue-light;
+$secondary: $app-slate;
+$success: $app-green;
+$danger: $app-red;
+$info: $app-blue-dark;
+$light: $app-cream;
+$dark: $app-slate;
+
+$body-bg: $app-cream;
+$body-color: $app-slate;
+$link-color: $app-blue-light;
+
+$border-radius: 0.5rem;
+$border-radius-lg: 0.75rem;
+
+@import "bootstrap/scss/bootstrap";
+
+//  Composants specifiques a l'application
+
+.app-header {
+  background-color: #fff;
+  border: 1px solid darken($app-cream, 8%);
+  border-radius: $border-radius-lg;
+  margin: 1rem auto 0;
+  max-width: 1140px;
+}
+
+.app-brand {
+  color: $app-blue-dark;
+  font-weight: 700;
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+
+.app-username {
+  color: $app-slate;
+  font-size: 0.95rem;
+}
+
+.app-footer {
+  color: rgba($app-slate, 0.7);
+  font-size: 0.9rem;
+}
+
+.app-table {
+  background-color: #fff;
+  border-radius: $border-radius;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+
+  thead {
+    background-color: $app-slate;
+    color: #fff;
+  }
+
+  tbody tr:nth-child(odd) {
+    background-color: $app-cream;
+  }
+}
+
+.btn-icon {
+  background: none;
+  border: none;
+  color: $app-blue-dark;
+  padding: 0.15rem 0.35rem;
+  font-size: 1.05rem;
+
+  &:hover {
+    color: $app-blue-light;
+  }
+
+  &.text-danger:hover {
+    color: $app-red;
+  }
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+
+  .card {
+    border: 1px solid darken($app-cream, 8%);
+    transition: box-shadow 0.15s ease-in-out;
+  }
+
+  .card:hover {
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.08);
+    color: $app-blue-light;
+  }
+}
