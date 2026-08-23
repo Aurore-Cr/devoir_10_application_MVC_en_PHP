@@ -5,9 +5,9 @@
 
  */
 
-DROP DATABASE IF EXISTS touche_pas_au_klaxon_db;
-CREATE DATABASE touche_pas_au_klaxon_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE touche_pas_au_klaxon_db;
+DROP DATABASE IF EXISTS touche_pas_au_klaxon;
+CREATE DATABASE touche_pas_au_klaxon CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE touche_pas_au_klaxon;
 
 /** 
 * Table : agence
